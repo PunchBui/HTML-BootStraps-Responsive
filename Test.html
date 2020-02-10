@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title & Link Icon -->
+    <title>Mazel.</title>
+    <link rel="icon" href="favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Library -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"crossorigin="anonymous"></script>
+    <!-- Style -->
+    <style>
+        html {
+            font-size: 62.5%;
+        }
+        body {
+            font-size: 1.4em;
+        }
+        /* Wrapper */
+        #Wrapper {
+            /* position: relatisve; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+        }
+        /* Banner */
+        #BannerContainner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            margin: 250px 0 0 0;
+            padding: 0 5% 0 5%;
+            min-height: 100px;
+        }
+        #BannerContainner span {
+            color: azure;
+        }
+        @media only screen and (max-width: 600px) {
+            #BannerHeader {
+                font-size: 4rem;
+            }
+            #BannerSlide {
+                z-index: -1;
+            }
+            #BennerCarousel img{
+                filter: brightness(50%);
+                object-fit: cover;
+                height: 800px;
+                width: unset;
+            }
+        }
+        @media only screen and (min-width: 601px) {
+            #BannerHeader {
+                font-size: 5rem;
+            }
+            #BannerSlide {
+                z-index: -1;
+                min-height: 600px;
+            }
+            #BennerCarousel img{
+                filter: brightness(50%);
+                object-fit: cover;
+            }
+        }
+        #ButtonContainner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5%;
+        }
+        #ButtonContainner button {
+            font-size: 1.2rem;
+        }
+        /* Services */
+        #ServicesContainner {
+            margin: 150px 5% 150px 5%;
+        }
+        #ServicesContainner img {
+            width: 50px;
+        }
+        #ServicesBoxs {
+            margin: 2rem 1% 2rem 1%;
+        }
+        #ServicesHeader {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 16px
+        }
+        #ServiceText {
+            color: #A3A3A3;
+        }
+        /* Tabs */
+        #TabContainner {
+            margin-bottom: 150px;
+            width:100%;
+        }
+        @media only screen and (max-width: 600px) {
+            .Tab {
+                cursor: pointer;
+                font-size: 1.4rem;
+                margin: 18px 2.5% 18px 2.5%;
+                color: #000000;
+            }
+        }
+        @media only screen and (min-width: 601px) {
+            .Tab {
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 18px 2.5% 18px 2.5%;
+            color: #000000;
+        }
+        }
+        .Tab:hover {
+            color: #E7B252;
+        }
+        .tabItem {
+            cursor: pointer;
+        }
+        .tabItem:hover {
+            opacity: 0.7;
+        }
+        .nopadding {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        /* Modal */
+        #ModalTab {
+            width: 102%;
+            height: 100%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        #ModalBG{
+            width: 100%;
+            background-color: #000000;
+            opacity: 0.7;
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+        #ModalImg {
+            z-index: 3;
+            width: 80%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        /* Animate */
+        #AnimateContainner {
+            height:200px;
+            padding: 7%;
+            margin-bottom: 150px;
+            z-index: -1;
+        }
+        #AnimateBG {
+            width: 100%;
+            height:
+            200px;
+            position: absolute;
+            object-fit: cover;
+            z-index:-1;
+            filter: brightness(50%);
+        }
+        #AnimateNumber {
+            font-size: 3.5rem;
+            color: #FFFFFF;
+            z-index: -1;
+        }
+        #AnimateText {
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            z-index: -1;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="Wrapper">
+        <!-- Banner -->
+        <div id="BannerContainner">
+            <span id="BannerHeader">FLEXIBLE & CUSTOMIZABLE</span>
+            <span style="font-size: 2rem;">We carry a passion for performance marketing</span>
+            <div id="ButtonContainner">
+                <button type="button" class="btn btn-outline-secondary" style="margin-right: 5%;color:aliceblue;"> READMORE </button>
+                <button type="button" class="btn btn-light"> LEARNMORE </button>
+            </div>
+        </div>
+        <div id="BannerSlide" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" id="BennerCarousel">
+                    <img class="d-block w-100" src="Assets/Images/banner1.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item" id="BennerCarousel">
+                    <img class="d-block w-100" src="Assets/Images/banner2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item" id="BennerCarousel">
+                    <img class="d-block w-100" src="Assets/Images/banner3.jpg" alt="Third slide">
+                </div>
+            </div>
+        </div>
+        <!-- Services Section -->
+        <div class="container d-flex flex-column justify-content-md-center align-items-center" id="ServicesContainner">
+            <div class="d-flex" style="margin-bottom: 64px;">
+                <span style="font-size: 3rem;">OUR SERVICES</span>
+                <span style="font-size: 3rem;color:#E6AE4A">.</span>
+            </div>
+            <div class="row d-flex">
+              <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                <img class="d-block" src="Assets/Icons/black-plane.png">
+                <span id="ServicesHeader">TOURING</span>
+                <span id="ServiceText" align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate ipsum vel sapien varius tempus. Integer augue nulla, euismod at iaculis nec.</span>
+              </div>
+              <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                <img class="d-block" src="Assets/Icons/landscape-with-mountains.png">
+                <span id="ServicesHeader">HIKING</span>
+                <span id="ServiceText" align="center">In viverra faucibus fermentum. Nullam gravida lacus cursus, pellentesque velit in, ullamcorper sapien. Sed vitae dictum magna. Suspendisse aliquam lectus.</span>
+              </div>
+              <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                <img class="d-block" src="Assets/Icons/magic-wand-auto-fix-button.png">
+                <span id="ServicesHeader">MAGIC</span>
+                <span id="ServiceText" align="center">onec tristique fringilla arcu. Phasellus bibendum fringilla metus sed molestie. Sed a tellus non arcu facilisis blandit. Curabitur bibendum neque gravida.</span>
+              </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                  <img class="d-block" src="Assets/Icons/history-clock-button.png">
+                  <span id="ServicesHeader">TIMING</span>
+                  <span id="ServiceText" align="center">Sed tincidunt consectetur congue. Vivamus vulputate nulla ut finibus congue. Mauris nulla libero, placerat et risus ut, blandit semper nisi.</span>
+                </div>
+                <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                  <img class="d-block" src="Assets/Icons/good-mood-emoticon.png">
+                  <span id="ServicesHeader">SERVICE MIND</span>
+                  <span id="ServiceText" align="center">Nunc lacus mauris, vestibulum id elementum sollicitudin, condimentum vel nunc. Sed imperdiet risus nec ante porta congue. Sed vitae ligula.</span>
+                </div>
+                <div class="col-sm d-flex flex-column justify-content-md-center align-items-center" id="ServicesBoxs">
+                  <img class="d-block" src="Assets/Icons/help-round-button.png">
+                  <span id="ServicesHeader">HELPFUL</span>
+                  <span id="ServiceText" align="center">Integer interdum nec sapien ut porta. Morbi dolor enim, venenatis a dolor vitae, dapibus rutrum nisl. Quisque non finibus odio. Nullam in leo et nulla.</span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- Tab Section -->
+        <div class="d-flex flex-column justify-content-md-center align-items-center" id="TabContainner">
+            <div class="d-flex" style="margin-bottom: 48px;">
+                <span style="font-size: 3rem;">GREAT WORK</span>
+                <span style="font-size: 3rem;color:#E6AE4A">.</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 32px;width:100%;">
+                <span class="Tab" id="all" align="center" onclick="TabHandler('all')">ALL</span>
+                <span class="Tab" id="brand" align="center" onclick="TabHandler('brand')">BRANDING</span>
+                <span class="Tab" id="design" align="center" onclick="TabHandler('design')">DESIGN</span>
+                <span class="Tab" id="photo" align="center" onclick="TabHandler('photo')">PHOTO</span>
+                <span class="Tab" id="coffee" align="center" onclick="TabHandler('coffee')">COFFEE</span>
+            </div>
+            <div style="width: 100%;">
+                <div class="d-flex">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/brand1.png" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/brand2.jpg" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/brand3.jpg" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/coffee1.jpg" onclick="ModalOpen(this.src)">
+                </div>
+                <div class="d-flex">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/coffee2.jpg" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/design1.jpg" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/photo1.jpg" onclick="ModalOpen(this.src)">
+                    <img class="col-sm-3 nopadding tabItem w-25" src="Assets/Images/photo2.jpg" onclick="ModalOpen(this.src)">
+                </div>
+            </div>
+        </div>
+        <!-- Modal TabImg -->
+        <div id="ModalTab" onclick="ModalClose()">
+            <img id="ModalImg" src="Assets/Images/brand1.png" onclick="ModalClose()">
+            <div id="ModalBG" onclick="ModalClose()"></div>
+        </div>
+        <!-- Animate -->
+        <div id="AnimateContainner" class="d-flex justify-content-around align-items-center w-100">
+            <img id="AnimateBG" src="Assets/Images/coffee2.jpg">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <span id="AnimateNumber" class="count-this">59</span>
+                <span id="AnimateText">AWARDS</span>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <span id="AnimateNumber" class="count-this">1054</span>
+                <span id="AnimateText">CLIENTS</span>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <span id="AnimateNumber" class="count-this">34</span>
+                <span id="AnimateText">TEAM</span>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <span id="AnimateNumber" class="count-this">154</span>
+                <span id="AnimateText">PROJECT</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <script>
+        ScrollReveal().reveal('#BannerContainner', { duration: 2000 });
+        ScrollReveal().reveal('#ServicesContainner', { duration: 2000 });
+        ScrollReveal().reveal('#TabContainner', { duration: 2000 });
+        ScrollReveal().reveal('#AnimateContainner', { duration: 2000 });
+    </script>
+    <!-- Tab Modal -->
+    <script>
+        const modal = document.getElementById("ModalTab");
+        console.log(modal.style.display);
+        const modalImg = document.getElementById("ModalImg");
+        const modalBG = document.getElementById("ModalBG");
+        const ModalOpen = (Img) => {
+            modal.style.display = 'flex';
+            modalImg.src = Img;
+            console.log(modal.style.display);
+        }
+        const ModalClose = () => {
+            modal.style.display = 'none';
+            console.log(modal.style.display);
+        }
+    </script>
+    <!-- Tab Section -->
+    <script>
+        // Init Variable
+        const tabSelecting = "#E7B252";
+        const tabUnSelecting = "#000000";
+        //Tab Img Variable
+        const tabImg = {
+            brand:["Assets/Images/brand1.png","Assets/Images/brand2.jpg","Assets/Images/brand3.jpg"],
+            coffee:["Assets/Images/coffee1.jpg","Assets/Images/coffee2.jpg"],
+            design:"Assets/Images/design1.jpg",
+            photo:["Assets/Images/photo1.jpg","Assets/Images/photo2.jpg"]
+        }
+        //TabHandler
+        const TabHandler = (type) => {
+            //Clear Hilight Tab
+            const tabBtn = document.getElementsByClassName("Tab");
+            for(const tab of tabBtn){
+                tab.style.color = tabUnSelecting;
+            }
+            //Clear Gallery
+            const tabItems = document.getElementsByClassName("tabItem");
+            for(const items of tabItems){
+                items.src = "";
+                items.style.display = "none";
+            }
+            //Hilight Selected Tab
+            document.getElementById(type).style.color = tabSelecting;
+            //Selecting State
+            let runner = 0;
+            switch(type){
+                case "all":{
+                    for(i=0;i<tabImg.brand.length;i++){
+                        tabItems[runner].src = tabImg.brand[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    tabItems[runner].src = tabImg.design;
+                    tabItems[runner].style.display = "block";
+                    runner++;
+                    for(i=0;i<tabImg.photo.length;i++){
+                        tabItems[runner].src = tabImg.photo[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    for(i=0;i<tabImg.coffee.length;i++){
+                        tabItems[runner].src = tabImg.coffee[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    // console.log("1");
+                    // console.log(tabItems);
+                    break;
+                }
+                case "brand":{
+                    for(i=0;i<tabImg.brand.length;i++){
+                        tabItems[runner].src = tabImg.brand[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    break;
+                }
+                case "design":{
+                    tabItems[runner].src = tabImg.design;
+                        tabItems[runner].style.display = "block";
+                    runner++;
+                    break;
+                }
+                case "photo":{
+                    for(i=0;i<tabImg.photo.length;i++){
+                        tabItems[runner].src = tabImg.photo[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    break;
+                }
+                case "coffee":{
+                    for(i=0;i<tabImg.coffee.length;i++){
+                        tabItems[runner].src = tabImg.coffee[i];
+                        tabItems[runner].style.display = "block";
+                        runner++;
+                    }
+                    break;
+                }
+            }
+        }
+        //Init Function
+        TabHandler("all");
+    </script>
+    <!-- Animated Counter -->
+    <script>
+        // this is the target which is observed
+        var target = document.getElementById('AnimateContainner');
+        let once = false;
+        // configure the intersection observer instance
+        var intersectionObserverOptions = {
+            root: null,
+            rootMargin: '150px',
+            threshold: 1.0
+        }
+        var observer = new IntersectionObserver(onIntersection, intersectionObserverOptions);
+        // provide the observer with a target
+        observer.observe(target);
+        function onIntersection(entries){
+            entries.forEach(entry => {
+                // console.clear();
+                target.classList.toggle('visible', entry.intersectionRatio > 0);
+                // Are we in viewport?
+                if (entry.intersectionRatio > 0 && once==false) {
+                    Counter();
+                    once = true;
+                // Stop watching 
+                // observer.unobserve(entry.target);
+                }
+            });
+        }
+        const Counter = () => {
+            $('.count-this').each(function () {
+            // Start the counting from a specified number - in this case, 0!
+                $(this).prop('Counter',0).animate({
+                    Counter: $(this).text()
+                }, {
+                    // Speed of counter in ms, default animation style
+                    duration: 3000,
+                    // Easing function
+                    easing:'swing',
+                    step:function (now) {
+                    // Round up the number
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        }
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
